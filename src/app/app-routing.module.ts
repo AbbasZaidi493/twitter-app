@@ -5,6 +5,7 @@ import { HashtagSearchComponent } from './hashtag-search/hashtag-search.componen
 
 
 const routes: Routes = [
+  { path: '', component: HashtagSearchComponent },
   { path: 'user-search', component: UserSearchComponent },
   { path: 'hashtag-search', component: HashtagSearchComponent }
 ];

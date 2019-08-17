@@ -1,1 +1,11 @@
+<h3 style="margin-left: 20px">Angular Twitter</h3>
+<div style="display: flex; flex-direction: row">
+  <div [ngClass]="{'selected' : isHashtagSelected}" class="tabs" (click)="hastagSearchSelected()">
+    <span style="text-align: center; margin: auto">hashtag search</span>
+  </div>
+  <div [ngClass]="{'selected' : isUserSelected}" class="tabs" (click)="userSearchSelected()">
+    <span style="text-align: center; margin: auto">user search</span>
+  </div>
+</div>
 
+<router-outlet></router-outlet>

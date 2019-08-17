@@ -1,0 +1,10 @@
+.selected {
+    background: #F8F8FA;
+}
+.tabs {
+    display: flex; 
+    width: 130px; 
+    height: 30px; 
+    text-align: center; 
+    margin-left: 20px
+}
