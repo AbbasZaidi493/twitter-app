@@ -1,27 +1,36 @@
-# TwitterApp
+# twitter-app
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.7.4.
+An Angular 5 app that display the list of tweets on the basis of hashtag and user.
 
-## Development server
+## Required Dependencies
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+- node >= v8
 
-## Code scaffolding
+## Getting Started
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+```
+git clone
+```
 
-## Build
+```
+npm install
+```
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
+### Firing up the server:
 
-## Running unit tests
+```
+ng serve
+```
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+It would automatically open a browser window with `localhost:4200`. In case it doesn't, you can visit the url manually.
 
-## Running end-to-end tests
+### Documentation:
+I have used typedoc to generate docs for this project. The docs are in root level in docs folder. You can generate docs by running the following command.
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+```
+npm run docs
+```
 
-## Further help
+### In case of any queries:
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+`abbasshah493@gmail.com`
