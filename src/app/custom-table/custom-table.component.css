@@ -1,0 +1,10 @@
+table {
+    table-layout: fixed;
+    word-wrap: break-word;
+    width: 93%;
+    height: 40%;
+    background: white;
+    margin-left: 50px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}

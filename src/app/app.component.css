@@ -1,4 +1,5 @@
 .selected {
+    color: blue;
     background: #F8F8FA;
 }
 .tabs {
@@ -6,5 +7,5 @@
     width: 130px; 
     height: 30px; 
     text-align: center; 
-    margin-left: 20px
+    margin-left: 50px
 }
