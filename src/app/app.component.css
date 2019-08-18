@@ -9,3 +9,18 @@
     text-align: center; 
     margin-left: 50px
 }
+.heading {
+    padding-left: 50px;
+    padding-top: 20px; 
+    padding-bottom: 20px
+}
+.tabs-header {
+    display: flex; 
+    flex-direction: row
+}
+
+.search-heading {
+    text-align: center; 
+    margin: auto;
+    cursor: pointer;
+}

@@ -1,0 +1,21 @@
+.alert {
+    margin-top: 26px;
+    width: 50%;
+    margin-left: 50px;   
+}
+.hashtag-outer {
+    background: #F8F8FA; 
+    padding-bottom: 20px;
+    min-height: 85vh;
+}
+.hashtag-inner {
+    padding-top: 20px; 
+    padding-left: 50px;
+}
+.hashtag-heading {
+    color: #979a9c; 
+    font-weight: 500;
+}
+.icon {
+    cursor: pointer;
+}

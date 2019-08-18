@@ -8,7 +8,9 @@
     "build": "ng build --prod",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "docs": "npx typedoc --mode modules -module commonjs --exclude **/*.spec.ts --out docs/typedoc src/app",
+    "typedoc": "typedoc"
   },
   "private": true,
   "dependencies": {
@@ -25,6 +27,7 @@
     "core-js": "^2.4.1",
     "font-awesome": "^4.7.0",
     "ngx-pagination": "^4.1.0",
+    "ngx-spinner": "^2.0.0",
     "rxjs": "^5.5.6",
     "zone.js": "^0.8.19"
   },
@@ -46,6 +49,7 @@
     "protractor": "~5.1.2",
     "ts-node": "~4.1.0",
     "tslint": "~5.9.1",
+    "typedoc": "^0.15.0",
     "typescript": "~2.5.3"
   }
 }

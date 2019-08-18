@@ -1,16 +1,17 @@
 
-<div style="background: #F8F8FA; padding-bottom: 20px">
-  <div style="padding-left: 50px">
-    <div style="padding-top: 20px">
-      <span style="color: #CCD0D4">Hashtag Search</span>
-      <div class="input-group md-form" style="width: 20%">
-        <input class="form-control" [(ngModel)]="searchText" name="searchText" (keyup.enter)="getTweetsByHashtag()" type="text" placeholder="Search by Hashtag" aria-label="Search">
-        <div class="input-group-append"> 
-          <span class="input-group-text" (click)="getTweetsByHashtag()"><i class="fa fa-search"
-              aria-hidden="true"></i></span>
-        </div>
+<div class="hashtag-outer">
+  <div class="hashtag-inner">
+    <span class="hashtag-heading">Hashtag Search</span>
+    <div class="input-group md-form" style="width: 20%">
+      <input class="form-control" [(ngModel)]="searchText" name="searchText" (keyup.enter)="getTweetsByHashtag()" type="text" placeholder="Search by Hashtag" aria-label="Search">
+      <div class="input-group-append"> 
+        <span class="input-group-text icon" (click)="getTweetsByHashtag()"><i class="fa fa-search"
+            aria-hidden="true"></i></span>
       </div>
     </div>
-    </div>
-    <app-custom-table *ngIf="requiredData.length>0" [data]="requiredData"></app-custom-table>
+  </div>
+  <div *ngIf="searchError" class="alert alert-warning" role="alert">
+    <i class="fa fa-info-circle"></i> {{searchError}}
+  </div>
+  <app-custom-table *ngIf="requiredData.length>0" [data]="requiredData"></app-custom-table>
 </div>

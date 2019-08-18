@@ -7,7 +7,8 @@ import { UserSearchComponent } from './user-search/user-search.component';
 import { HashtagSearchComponent } from './hashtag-search/hashtag-search.component';
 import { HttpClientModule } from '@angular/common/http';
 import { CustomTableComponent } from './custom-table/custom-table.component';
-import {NgxPaginationModule} from 'ngx-pagination';
+import { NgxPaginationModule } from 'ngx-pagination';
+import { NgxSpinnerModule } from "ngx-spinner";
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import {NgxPaginationModule} from 'ngx-pagination';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    NgxSpinnerModule
   ],
   providers: [],
   bootstrap: [AppComponent]

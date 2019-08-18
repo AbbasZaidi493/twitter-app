@@ -7,7 +7,9 @@ import { HashtagSearchComponent } from './hashtag-search/hashtag-search.componen
 const routes: Routes = [
   { path: '', component: HashtagSearchComponent },
   { path: 'user-search', component: UserSearchComponent },
-  { path: 'hashtag-search', component: HashtagSearchComponent }
+  { path: 'hashtag-search', component: HashtagSearchComponent },
+  //any other route will take you to HashtagSearchComponent
+  { path: '**', component: HashtagSearchComponent }
 ];
 
 @NgModule({

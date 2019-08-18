@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CoreService } from "../services/core.service";
+import { NgxSpinnerService } from 'ngx-spinner';
 var vm;
 
 @Component({
@@ -9,76 +10,57 @@ var vm;
   providers: [CoreService]
 })
 export class HashtagSearchComponent implements OnInit {
-  searchText: String = '';
+  searchText: string = '';
   twitterResult: any = [];
   requiredData: any = [];
+  searchError: string = '';
 
-  constructor(private coreService: CoreService) { 
+  constructor(private coreService: CoreService, private spinner: NgxSpinnerService) { 
     vm = this;
   }
 
   ngOnInit() {
   }
 
-  truncateTweet(tweet) {
-    let res = '';
-    if(tweet.length > 50) {
-      for(var i=0; i<50; i++) {
-        res = res + tweet[i];
-      }
-      res = res + '...';
-      return res;
+  /**
+   * Get tweets from twitter api.
+   * Display error messages if search field is empty, if response is null or api returns an error.
+   * Construct required data for table and pass it to custom-table component.
+   * 
+   * @method getTweetsByHashtag 
+   * 
+   * @returns {void}
+  */
+  getTweetsByHashtag(): void {
+    vm.searchError = '';
+    vm.twitterResult = [];
+    vm.requiredData = [];
+    if(vm.searchText === '') {
+      vm.searchError = 'Please enter text in search field';
     } else {
-      return tweet;
+      vm.spinner.show();
+      vm.coreService.getTweetsByHashtag(vm.searchText).subscribe(res => {
+        vm.spinner.hide();
+        if (res) {
+          vm.twitterResult = res;
+          vm.requiredData = vm.twitterResult.map(tweet => ({ 
+            Tweet: CoreService.truncateTweet(tweet.text),
+            Likes: tweet.likes,
+            Replies: tweet.replies,
+            Retweets: tweet.retweets,
+            Hashtags: CoreService.getRequiredHashtags(tweet.hashtags),
+            Date: CoreService.modifyDate(tweet.date)
+          }));
+        }
+        if (!res || res.length === 0) {
+          vm.searchError = 'No result matches your search Criteria';
+        }
+      }, err => {
+        console.error('Error in search Endpoint', err);
+        vm.spinner.hide();
+        vm.searchError = 'Something went wrong. Please contact support';
+      });
     }
-  }
-
-  getRequiredHashtags(hashtags) {
-    let res = [];
-    if(hashtags.length > 2) {
-      for(var i=0; i<2; i++) {
-        res.push(hashtags[i]);
-      }
-     } else {
-       res = hashtags;
-     }
-     return res;
-  }
-
-  modifyDate(date) {
-    let res = '';
-    date = date.split(' - ');
-    date = date[1].split(' ');
-    res = date[1] +  ' ' + date[0] + ', ' + date[2];
-    return res;
-  }
-
-  getTweetsByHashtag() {
-    console.log('search text ---', vm.searchText);
-    vm.coreService.getTweetsByHashtag(vm.searchText).subscribe(res => {
-      if (res) {
-        console.log('searchResults', res);
-        vm.twitterResult = res;
-        vm.requiredData = vm.twitterResult.map(tweet => ({ 
-          text: tweet.text,
-          likes: tweet.likes,
-          replies: tweet.replies,
-          retweets: tweet.retweets,
-          hashtags: tweet.hashtags,
-          date: tweet.date
-         }));
-         vm.requiredData.forEach(function(data) {
-           let tweet = data.text;
-           let hashtags = data.hashtags;
-           let date = data.date;
-           data.hashtags = vm.getRequiredHashtags(hashtags);
-           data.text = vm.truncateTweet(tweet);
-           data.date = vm.modifyDate(date);
-         });
-      }
-    }, err => {
-      console.error('Error in search Endpoint', err);
-    });
   }
 
 }
