@@ -1,15 +1,18 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { CoreService } from "../services/core.service";
 import { NgxSpinnerService } from 'ngx-spinner';
 var vm;
 
+/**
+ * This component handles search by user id.
+*/
 @Component({
   selector: 'app-user-search',
   templateUrl: './user-search.component.html',
   styleUrls: ['./user-search.component.css'],
   providers: [CoreService]
 })
-export class UserSearchComponent implements OnInit {
+export class UserSearchComponent {
   searchText: string = '';
   twitterResult: Array<Object> = [];
   requiredData: Array<Object> = [];
@@ -17,9 +20,6 @@ export class UserSearchComponent implements OnInit {
 
   constructor(private coreService: CoreService, private spinner: NgxSpinnerService) { 
     vm = this;
-  }
-
-  ngOnInit() {
   }
 
   /**

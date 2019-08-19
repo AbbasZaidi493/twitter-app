@@ -3,6 +3,9 @@ import { CoreService } from "../services/core.service";
 import { NgxSpinnerService } from 'ngx-spinner';
 var vm;
 
+/**
+ * This component handles search by hashtag.
+*/
 @Component({
   selector: 'app-hashtag-search',
   templateUrl: './hashtag-search.component.html',
@@ -15,7 +18,7 @@ export class HashtagSearchComponent implements OnInit {
   requiredData: any = [];
   searchError: string = '';
 
-  constructor(private coreService: CoreService, private spinner: NgxSpinnerService) { 
+  constructor(private coreService: CoreService, private spinner: NgxSpinnerService) {
     vm = this;
   }
 
@@ -35,7 +38,7 @@ export class HashtagSearchComponent implements OnInit {
     vm.searchError = '';
     vm.twitterResult = [];
     vm.requiredData = [];
-    if(vm.searchText === '') {
+    if (vm.searchText === '') {
       vm.searchError = 'Please enter text in search field';
     } else {
       vm.spinner.show();
@@ -43,7 +46,7 @@ export class HashtagSearchComponent implements OnInit {
         vm.spinner.hide();
         if (res) {
           vm.twitterResult = res;
-          vm.requiredData = vm.twitterResult.map(tweet => ({ 
+          vm.requiredData = vm.twitterResult.map(tweet => ({
             Tweet: CoreService.truncateTweet(tweet.text),
             Likes: tweet.likes,
             Replies: tweet.replies,

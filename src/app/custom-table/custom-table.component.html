@@ -5,10 +5,10 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let item of data | paginate: { itemsPerPage: 10, currentPage: p } let i = index; ">
+      <tr *ngFor="let item of data | paginate: { itemsPerPage: 10, currentPage: currentPage } let i = index; ">
         <td *ngFor="let i of objectKeys(item)" class="data" [ngClass]="{'likes-replies' : (i==='Likes' || i==='Replies')}" scope="row">{{item[i] || '-'}}</td>
       </tr>
     </tbody>
 </table>
-<pagination-controls (pageChange)="p = $event"></pagination-controls>
+<pagination-controls (pageChange)="currentPage = $event"></pagination-controls>
 

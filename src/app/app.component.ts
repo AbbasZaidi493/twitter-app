@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
+/**
+ * Main application component. This will be the first component that renders in the application.
+*/
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',

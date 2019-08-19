@@ -3,6 +3,9 @@ import { HttpClient } from '@angular/common/http';
 import { environment } from '../../environments/environment';
 import { Observable } from 'rxjs/Observable';
 
+/**
+ * Service for communicating with twitter api.
+*/
 @Injectable()
 export class CoreService {
 
@@ -20,7 +23,7 @@ export class CoreService {
   getTweetsByHashtag(hashtag: string): Observable<Object> {
     /**
      *This 'https://am-twitter-scrape.herokuapp.com' endpoint was giving cors error. So, i had to give cors-anywhere prefix to resolve the error.
-     */
+    */
     return this.http.get('https://cors-anywhere.herokuapp.com/' + environment.API + '/hashtags/' + hashtag + '?pages_limit=3&wait=0');
   }
 
