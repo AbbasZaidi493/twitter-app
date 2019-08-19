@@ -16,6 +16,10 @@ git clone
 npm install
 ```
 
+```
+npm install -g @angular/cli
+```
+
 ### Firing up the server:
 
 ```
