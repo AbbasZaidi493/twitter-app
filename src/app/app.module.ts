@@ -9,13 +9,15 @@ import { HttpClientModule } from '@angular/common/http';
 import { CustomTableComponent } from './custom-table/custom-table.component';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { NgxSpinnerModule } from "ngx-spinner";
+import { NotFoundComponent } from './not-found/not-found.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     UserSearchComponent,
     HashtagSearchComponent,
-    CustomTableComponent
+    CustomTableComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
